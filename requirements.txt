@@ -1,0 +1,36 @@
+# OpenClaw Free MCP Servers - Requirements
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+mcp>=1.0.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# Image Generation (choose one)
+# Option 1: PyTorch with CUDA (recommended for NVIDIA GPUs)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Option 2: PyTorch CPU-only (for systems without NVIDIA GPU)
+# torch>=2.0.0 --index-url https://download.pytorch.org/whl/cpu
+# torchvision>=0.15.0 --index-url https://download.pytorch.org/whl/cpu
+
+# Diffusion models
+diffusers>=0.32.0
+transformers>=4.35.0
+accelerate>=0.25.0
+
+# Text-to-Speech
+kokoro>=0.9.0
+soundfile>=0.12.0
+
+# Optional but recommended
+scipy>=1.11.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# Development dependencies (optional)
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
+# black>=23.0.0
+# flake8>=6.0.0

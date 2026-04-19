@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "image-generation": {
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/mcp-servers/image-generation/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "description": "FREE local image generation using SDXL Lightning/Turbo - no API keys required!"
+    },
+    "kokoro-tts": {
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/mcp-servers/kokoro-tts/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      },
+      "description": "FREE text-to-speech using Kokoro 82M model - no API keys required!"
+    },
+    "image-generation-simple": {
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/mcp-servers/image-generation/server-simple.py"
+      ],
+      "description": "Image generation with installation status checker"
+    }
+  },
+  "tools": {
+    "description": "FREE Image Generation and TTS for OpenClaw",
+    "features": [
+      "generate_image_free",
+      "list_image_models",
+      "text_to_speech",
+      "speak_telegram_voice",
+      "list_voices"
+    ]
+  }
+}
