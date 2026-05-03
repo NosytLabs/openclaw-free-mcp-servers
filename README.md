@@ -1,6 +1,6 @@
 # OpenClaw Free MCP Servers
 
-[![GitHub stars](https://img.shields.io/github/stars/Tyson/openclaw-free-mcp-servers?style=social)](https://github.com/Tyson/openclaw-free-mcp-servers/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/NosytLabs/openclaw-free-mcp-servers?style=social)](https://github.com/NosytLabs/openclaw-free-mcp-servers/stargazers)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://www.python.org/)
 
@@ -10,7 +10,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/Tyson/openclaw-free-mcp-servers.git
+git clone https://github.com/NosytLabs/openclaw-free-mcp-servers.git
 cd openclaw-free-mcp-servers
 
 # Install dependencies
