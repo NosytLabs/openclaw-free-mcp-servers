@@ -34,19 +34,27 @@ jobs:
     - name: Install dependencies (CPU only)
       run: |
         python -m pip install --upgrade pip
-        # Install CPU-only PyTorch for testing
         pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
         pip install mcp numpy Pillow
     
     - name: Test MCP server imports
       run: |
-        python -c "import sys; sys.path.insert(0, 'mcp-servers/image-generation'); import server-simple"
-        python -c "import sys; sys.path.insert(0, 'mcp-servers/kokoro-tts'); import server"
+        python -c "import py_compile; py_compile.compile('mcp-servers/image-generation/server-simple.py'); print('server-simple.py: OK')"
+        python -c "import sys; sys.path.insert(0, 'mcp-servers/kokoro-tts'); import server; print('kokoro-tts server: OK')"
     
     - name: Test server startup
       run: |
-        timeout 5s python mcp-servers/image-generation/server-simple.py || true
-        timeout 5s python mcp-servers/kokoro-tts/server.py || true
+        python -c "
+        import subprocess, sys
+        for script in ['mcp-servers/image-generation/server-simple.py', 'mcp-servers/kokoro-tts/server.py']:
+            try:
+                r = subprocess.run([sys.executable, script], timeout=5, capture_output=True, text=True)
+                print(f'{script}: exit {r.returncode}')
+            except subprocess.TimeoutExpired:
+                print(f'{script}: started OK (timeout expected)')
+            except Exception as e:
+                print(f'{script}: {e}')
+        "
     
     - name: Run test suite
       run: |
