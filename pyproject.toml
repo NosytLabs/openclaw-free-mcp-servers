@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openclaw-free-mcp-servers"
+version = "0.1.0"
+description = "FREE Image Generation & Text-to-Speech MCP servers for OpenClaw - No API keys required!"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Nosyt Labs", email = "hi@nosytlabs.com"}
+]
+keywords = ["openclaw", "mcp", "image-generation", "text-to-speech", "ai", "stable-diffusion"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "mcp>=1.0.0",
+    "numpy>=1.24.0",
+    "Pillow>=10.0.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "diffusers>=0.32.0",
+    "transformers>=4.35.0",
+    "accelerate>=0.25.0",
+    "kokoro>=0.9.0",
+    "soundfile>=0.12.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/NosytLabs/openclaw-free-mcp-servers"
+Repository = "https://github.com/NosytLabs/openclaw-free-mcp-servers"
+Issues = "https://github.com/NosytLabs/openclaw-free-mcp-servers/issues"
+
+[tool.setuptools.packages.find]
+where = ["mcp-servers"]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
